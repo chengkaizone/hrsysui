@@ -1,6 +1,8 @@
 import { getRequest } from './api.js'
 
 export const initMenu = (router, store) => {
+
+	console.log("routes: " + store.state.routes.length)
 	if (store.state.routes.length > 0) {
 		return;
 	}
@@ -10,7 +12,7 @@ export const initMenu = (router, store) => {
 			router.addRoutes(fmtRoutes)
 			
 			store.commit('initRoutes', fmtRoutes)
-			store.dispatch('connect')
+			//store.dispatch('connect')
 		}
 	})
 }

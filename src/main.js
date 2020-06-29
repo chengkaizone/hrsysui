@@ -114,6 +114,7 @@ Vue.prototype.postRequest = postRequest;
 Vue.prototype.postKeyValueRequest = postKeyValueRequest;
 Vue.prototype.putRequest = putRequest;
 Vue.prototype.deleteRequest = deleteRequest;
+Vue.prototype.BASE_URL = "/hrsys";
 
 Vue.config.productionTip = false
 
@@ -130,6 +131,27 @@ router.beforeEach((to, from, next) => {
 			next('/?redirect=' + to.path);
 		}
 	}
+
+	// if (to.name == 'Login') {
+	// 	next();
+	// 	return;
+	// }
+	// var name = store.state.user.name;
+	// if (name == '未登录') {
+	// 	if (to.meta.requireAuth || to.name == null) {
+	// 		next({
+	// 			path: '/',
+	// 			query: {
+	// 				redirect: to.path
+	// 			}
+	// 		})
+	// 	} else {
+	// 		next();
+	// 	}
+	// } else {
+	// 	initMenu(router, store);
+	// 	next();
+	// }
 })
 
 new Vue({

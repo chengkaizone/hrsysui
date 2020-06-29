@@ -36,13 +36,12 @@
 </template>
 
 <script>
-	
 	export default {
 		name: "Login",
 		data() {
 			return {
 				loading: false,
-				vcUrl: '/verifyCode?time=' + new Date(),
+				vcUrl: this.BASE_URL + '/verifyCode?time=' + new Date(),
 				loginForm: {
 					username: 'admin',
 					password: '123',
@@ -58,7 +57,7 @@
 		},
 		methods: {
 			updateVerifyCode() {
-				this.vcUrl = '/verifyCode?time=' + new Date();
+				this.vcUrl = this.BASE_URL + '/verifyCode?time=' + new Date();
 			},
 			submitLogin() {
 				this.$refs.loginForm.validate((valid) => {
@@ -73,7 +72,7 @@
 								let destPath = (path == '/' || path == undefined) ? '/home' : path
 								this.$router.replace(destPath)
 							} else {
-								this.vcUrl = '/verifyCode?time=' + new Date()
+								this.vcUrl = this.BASE_URL + '/verifyCode?time=' + new Date()
 							}
 						})
 					} else {

@@ -30,7 +30,7 @@ axios.interceptors.response.use(success => {
 	return;
 })
 
-let base = ''
+let base = '/hrsys'
 
 export const postKeyValueRequest = (url, params) => {
 	return axios({
